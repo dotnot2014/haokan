@@ -1,0 +1,10 @@
+<view class="container">
+    <view style="display:flex;flex-direction:column;">
+        <view><text>图文标题:</text></view>
+        <view><text>------------</text></view>
+        <view><text>{{title}}</text></view>
+        <view class="content"><text>以下是图文正文，blablabla...</text></view>
+         <view class="line"></view>
+        <view style="width:100px;font-size:10px"><text>原文链接：{{articleUrl}}</text></view>
+    </view>
+</view>

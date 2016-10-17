@@ -1,0 +1,7 @@
+<view class="container">
+    <view style="display:flex;flex-direction:column;">
+        <view class="line"></view>
+        <view><text>{{title}}</text></view>
+        <view class="line"></view>
+    </view>
+</view>

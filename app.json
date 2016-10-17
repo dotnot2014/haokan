@@ -1,0 +1,42 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/hot/hot",
+    "pages/subscribe/subscribe",
+    "pages/details/details"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#99C65E",
+    "navigationBarTitleText": "花儿好看",
+    "navigationBarTextStyle":"white",
+    "enablePullDownRefresh":true
+  },
+  "tabBar": {
+    "color": "#dddddd",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "iconPath": "images/Recommend.png",
+      "selectedIconPath": "images/RecommendHL.png",
+      "text": "推荐"
+    }, {
+      "pagePath": "pages/hot/hot",
+      "iconPath": "images/hot.png",
+      "selectedIconPath": "images/hotHL.png",
+      "text": "热门"
+    }, {
+      "pagePath": "pages/subscribe/subscribe",
+      "iconPath": "images/book.png",
+      "selectedIconPath": "images/bookHL.png",
+      "text": "订阅"
+    }]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false
+}
