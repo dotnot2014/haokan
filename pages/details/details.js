@@ -9,7 +9,7 @@ Page({
     title:"",
     content:"",
     author:"",
-    url:"url2"
+    url:"http://www.wxb.com/material/content"
   },
   // 应用启动时加载数据
   onLoad: function (options) {

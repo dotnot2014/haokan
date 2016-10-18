@@ -14,7 +14,7 @@ Page({
   loadData: function(howmore){
       var that = this
       wx.request({
-      url: 'url1',
+      url: 'http://app.admin.weijuju.com/mobile/article/getRecommendArticleList',
       data: {
         order:"asc",
         limit:10,
@@ -24,9 +24,18 @@ Page({
           'Content-Type': 'application/json'
       },
       success: function(res) {
+
+        for(var i=0;i<res.data.rows.length;i++){
+          res.data.rows[i].postTime = res.data.rows[i].postTime.split(" ")[0]
+        }
+
         that.setData({
           articles: that.data.articles.concat(res.data.rows)
         })
+
+        // for(var i=0;i<that.data.articles.length;i++){
+        //   that.data.articles[i].postTime = that.data.articles[i].postTime.split(" ")[0]
+        // }
       }
     })
   },
