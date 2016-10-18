@@ -33,9 +33,6 @@ Page({
           articles: that.data.articles.concat(res.data.rows)
         })
 
-        // for(var i=0;i<that.data.articles.length;i++){
-        //   that.data.articles[i].postTime = that.data.articles[i].postTime.split(" ")[0]
-        // }
       }
     })
   },
