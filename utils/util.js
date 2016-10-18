@@ -1,21 +1,10 @@
-function formatTime(date) {
-  var year = date.getFullYear()
-  var month = date.getMonth() + 1
-  var day = date.getDate()
-
-  var hour = date.getHours()
-  var minute = date.getMinutes()
-  var second = date.getSeconds()
-
-
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
-}
-
-function formatNumber(n) {
-  n = n.toString()
-  return n[1] ? n : '0' + n
+// 提取HTML中的纯文本
+function getHtmlText(html){
+      var re1 = new RegExp("<.+?>","g"); //匹配html标签的正则表达式，"g"是搜索匹配多个符合的内容
+      var msg = html.replace(re1,'');    //执行替换成空字符
+      return msg;
 }
 
 module.exports = {
-  formatTime: formatTime
+  getHtmlText: getHtmlText
 }

@@ -28,3 +28,8 @@
   font-size: 10px;
   display:flex;
 }
+.tips{
+  padding: 10px;
+  font-size: 14px;
+  color: gray;
+}

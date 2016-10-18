@@ -1,56 +1,48 @@
 //index.js
 //获取应用实例
 var app = getApp()
+var util = require('../../utils/util.js')
 Page({
   data: {
     articles:[],
-    morearticles:[],
+    eachdatas:[],
     hidden:true,
-    moredata:true,
-    url1:'url1',
-    url2:'url2'
+    hasmore:true,
+    moredata:0
   },
   // 数据加载通用函数
-  loadData: function(json_url,moredata){
+  loadData: function(howmore){
       var that = this
       wx.request({
-      url: json_url,
-      data: {},
+      url: 'url1',
+      data: {
+        order:"asc",
+        limit:10,
+        offset:howmore
+      },
       header: {
           'Content-Type': 'application/json'
       },
       success: function(res) {
-        if(moredata){
-          that.setData({
-              morearticles: res.data.rows
-            })
-        }
-        else{
-          that.setData({
-              articles: res.data.rows
-            })
-        }
+        that.setData({
+          articles: that.data.articles.concat(res.data.rows)
+        })
       }
     })
-  },
-  // 应用首次进入加载
-  firstLoad: function(){
-    var that = this
-    var json_url = that.data.url1
-    that.loadData(json_url)
   },
   // 到页面底部，加载更多数据
   loadMore: function(){
     var that = this
-    var json_url = that.data.url2
 
-    that.setData({hidden: false})
+    that.setData({
+      hasmore: false,
+      moredata: that.data.moredata + 10
+    })
 
     setTimeout(function () {
-          that.loadData(json_url,true)
-          that.setData({hidden: true})
+          that.loadData(that.data.moredata)
+          that.setData({hasmore: true})
           console.log('数据加载执行完毕！')
-          that.setData({loadmore: false})
         }, 650)
 
   },
@@ -64,14 +56,7 @@ Page({
   seedetails: function(e) {
     wx.setStorageSync('articles', this.data.articles)
     wx.navigateTo({
-      url: '../details/details?id='+e.currentTarget.id+'&pagemore=no'
-    })
-  },
-    //Tap事件，更多数据页面调整处理（seedetailsmore）
-  seedetailsmore: function(e) {
-    wx.setStorageSync('articles_more', this.data.morearticles)
-    wx.navigateTo({
-      url: '../details/details?id='+e.currentTarget.id+'&pagemore=yes'
+      url: '../details/details?id='+e.currentTarget.id
     })
   },
   // 下拉刷新处理
@@ -79,7 +64,7 @@ Page({
     var that = this
     that.setData({hidden: false})
     setTimeout(function () {
-          that.firstLoad()
+          that.loadData(0)
           that.setData({hidden: true})
           console.log('数据加载执行完毕！')
           wx.stopPullDownRefresh()
@@ -87,6 +72,7 @@ Page({
   },
   // 应用启动时加载数据
   onLoad: function () {
-    this.firstLoad()
+    var that = this
+    that.loadData(0)
   }
 })

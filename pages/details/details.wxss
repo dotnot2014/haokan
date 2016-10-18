@@ -3,10 +3,20 @@
   padding: 0;
   background-color: #fcfcfc;
 }
+.title{
+  margin: 10px;
+}
+.author{
+  margin-left: 12px;
+  font-size:12px;
+  line-height:1.5;
+  color: gray;
+}
 .content{
-  font-size:10px;
-  padding-top: 20px;
-  color: darkgray;
+  margin: 10px;
+  font-size:14px;
+  line-height:1.5;
+  color: gray;
 }
 .line{
   margin-top: 10px;
