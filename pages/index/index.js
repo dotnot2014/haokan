@@ -48,7 +48,7 @@ Page({
     setTimeout(function () {
           that.loadData(that.data.moredata)
           that.setData({hasmore: true})
-          console.log('数据加载执行完毕！')
+          console.log('数据已加载！！！...')
         }, 650)
 
   },
@@ -60,6 +60,7 @@ Page({
   },
   //Tap事件，初始页面调整处理（seedetails）
   seedetails: function(e) {
+    // console.log(this.data.articles)
     wx.setStorageSync('articles', this.data.articles)
     wx.navigateTo({
       url: '../details/details?id='+e.currentTarget.id
@@ -72,7 +73,7 @@ Page({
     setTimeout(function () {
           that.loadData(0)
           that.setData({hidden: true})
-          console.log('数据加载执行完毕！')
+          console.log('数据已加载...')
           wx.stopPullDownRefresh()
         }, 650)
   },

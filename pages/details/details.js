@@ -1,15 +1,17 @@
 //details.js
 //获取应用实例
 var util = require('../../utils/util.js')
+var WxParse = require('../../wxParse/wxParse.js');
 var app = getApp()
 Page({
   data: {
     articles:[],
     articleUrl:"",
     title:"",
-    content:"",
+    content:"这是图文正文部分",
     author:"",
-    url:"http://www.wxb.com/material/content"
+    url:"http://wxedit.yead.net/collect",
+    wxParseData:[]
   },
   // 应用启动时加载数据
   onLoad: function (options) {
@@ -24,7 +26,7 @@ Page({
     var _url = that.data.articles[_id].articleUrl
     var _author = that.data.articles[_id].author
 
-    // 根据图文链接获取图文内容
+    // 根据图文链接获取图文内容--后台服务待提供
     wx.request({
       url: that.data.url,
       data: {
@@ -34,12 +36,14 @@ Page({
           'Content-Type': 'application/json'
       },
       success: function(res) {
-          var _text = util.getHtmlText(res.data.data.res_content)
-          that.setData({
-              title:_title,
-              content:_text,
-              author:_author
-          })
+            that.setData({
+                title:_title,
+                wxParseData:WxParse('html',res.data),
+                author:_author
+            })
+        },
+        fail:function(err){
+          console.log(err)
         }
       })
   }

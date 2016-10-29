@@ -1,9 +1,17 @@
+<import src="../../wxParse/wxParse.wxml"/>
+
 <view class="container">
     <view style="display:flex;flex-direction:column;">
         <view class="line"></view>
         <view class="title"><text>{{title}}</text></view>
         <view class="author"><text>from : {{author}}</text></view>
         <view class="line"></view>
-        <view class="content">{{content}}</view>
+        <!--正文内容部分-->
+        <view class="wxParse content">
+            <template is="wxParse" data="{{wxParseData}}"/>
+        </view>
     </view>
 </view>
+
+
+

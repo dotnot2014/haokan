@@ -3,6 +3,7 @@
   margin: 0px;
   padding: 0px;
   background-color: #fafafa;
+  font-family: 微软雅黑;
 }
 .article{
   width: 95%;
@@ -25,7 +26,7 @@
 }
 .bottom_text{
   padding: 10px;
-  font-size: 10px;
+  font-size: 11px;
   display:flex;
 }
 .tips{

@@ -1,7 +1,10 @@
+@import "../../wxParse/wxParse.wxss";
+
 .container{
   margin-top: 10px;
   padding: 0;
   background-color: #fcfcfc;
+  font-family: 微软雅黑;
 }
 .title{
   margin: 10px;
@@ -22,4 +25,7 @@
   margin-top: 10px;
   margin-bottom: 10px;
   border-bottom: solid #ededed 1px;
+}
+.wxParse-img{
+  background: transparent;
 }
