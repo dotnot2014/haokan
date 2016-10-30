@@ -29,10 +29,15 @@ Page({
           res.data.rows[i].postTime = res.data.rows[i].postTime.split(" ")[0]
         }
 
-        that.setData({
-          articles: that.data.articles.concat(res.data.rows)
-        })
-
+        if(howmore){
+          that.setData({
+            articles: that.data.articles.concat(res.data.rows)
+          })
+        }else{
+          that.setData({
+            articles: res.data.rows
+          })
+        }
       }
     })
   },
@@ -50,7 +55,6 @@ Page({
           that.setData({hasmore: true})
           console.log('数据已加载！！！...')
         }, 650)
-
   },
   // loading变化后处理
   loadingChange: function(){
@@ -60,7 +64,6 @@ Page({
   },
   //Tap事件，初始页面调整处理（seedetails）
   seedetails: function(e) {
-    // console.log(this.data.articles)
     wx.setStorageSync('articles', this.data.articles)
     wx.navigateTo({
       url: '../details/details?id='+e.currentTarget.id
