@@ -1,7 +1,11 @@
 <view class="container">
     <view style="display:flex;flex-direction:column;">
         <view class="line"></view>
-        <view><text>{{title}}</text></view>
+        <view><text>用户信息</text></view>
         <view class="line"></view>
+        <block wx:if="{{hasUserInfo === true}}">
+          <wx-image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></wx-image>
+          <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </block>
     </view>
 </view>

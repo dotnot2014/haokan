@@ -31,7 +31,7 @@
       "pagePath": "pages/subscribe/subscribe",
       "iconPath": "images/book.png",
       "selectedIconPath": "images/bookHL.png",
-      "text": "订阅"
+      "text": "我的"
     }]
   },
   "networkTimeout": {
